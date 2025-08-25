@@ -13,3 +13,9 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <ReactQueryDevtools initialIsOpen={false} />
   </QueryClientProvider>
 );
+
+const apiKey = import.meta.env.VITE_TMDB_TOKEN;
+
+fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`)
+  .then((res) => res.json())
+  .then((data) => console.log(data));
